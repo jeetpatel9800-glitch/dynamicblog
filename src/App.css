@@ -34,6 +34,154 @@ h1 {
     letter-spacing: 1px;
 }
 
+/* Header styles */
+.header-bar {
+    width: 100%;
+    background: linear-gradient(90deg,#1e3c72,#2a5298);
+    color: white;
+    padding: 12px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.nav {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.06);
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* HomePage styles */
+.home-page-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 8px;
+}
+
+.card-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.post-card {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: #f9f9f9;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .post-card {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.post-title {
+    margin: 0;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 8px;
+    border-radius: 4px;
+}
+
+.btn:last-child {
+    margin-right: 0;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Form styles */
+.form-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.textarea-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-height: 100px;
+}
+
+/* Post detail styles */
+.post-wrapper {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .post-wrapper {
+        padding: 12px;
+    }
+}
+
 /* Responsive grid for blog cards */
 @media (max-width: 900px) {
     .container {

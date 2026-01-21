@@ -1,64 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const HomePageWrapper = styled.div`
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px 8px;
-`;
-
-const CardGrid = styled.div`
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 700px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1100px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-`;
-
-const PostCard = styled.div`
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  background: #f9f9f9;
-  gap: 12px;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-  }
-`;
-
-const Title = styled.h2`
-  margin: 0;
-`;
-
-const Button = styled.button`
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  margin-right: 8px;
-  border-radius: 4px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 const HomePage = ({ posts, categories, deletePost }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -68,7 +9,7 @@ const HomePage = ({ posts, categories, deletePost }) => {
   );
 
   return (
-    <HomePageWrapper>
+    <div className="home-page-wrapper">
       <h1>Blog Posts</h1>
       <select onChange={(e) => setSelectedCategory(e.target.value)} style={{ padding: '8px', margin: '10px 0' }}>
         <option value="">All Categories</option>
@@ -78,30 +19,30 @@ const HomePage = ({ posts, categories, deletePost }) => {
           </option>
         ))}
       </select>
-      <CardGrid>
+      <div className="card-grid">
         {filteredPosts.map((post) => (
-          <PostCard key={post.id}>
+          <div className="post-card" key={post.id}>
             <div style={{ flex: 1 }}>
-              <Title>{post.title}</Title>
+              <h2 className="post-title">{post.title}</h2>
               <p style={{ marginTop: 8, color: '#333' }}>{post.content.slice(0, 120)}...</p>
               <p style={{ fontSize: 12, color: '#666', marginTop: 8 }}>{post.author || 'Anonymous'} • {post.date}</p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px'}}>
               <Link to={`/post/${post.id}`}>
-                <Button>Read More</Button>
+                <button className="btn">Read More</button>
               </Link>
               <Link to={`/edit/${post.id}`}>
-                <Button>Edit</Button>
+                <button className="btn">Edit</button>
               </Link>
-              <Button onClick={() => deletePost(post.id)}>Delete</Button>
+              <button className="btn" onClick={() => deletePost(post.id)}>Delete</button>
             </div>
-          </PostCard>
+          </div>
         ))}
-      </CardGrid>
+      </div>
       <Link to="/create">
-        <Button>Create New Post</Button>
+        <button className="btn">Create New Post</button>
       </Link>
-    </HomePageWrapper>
+    </div>
   );
 };
 
