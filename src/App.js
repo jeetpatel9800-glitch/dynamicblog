@@ -22,7 +22,7 @@ const GlobalContainer = styled.div`
 
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [categories, setCategories] = useState(['Technology', 'Lifestyle', 'Education']);
+  const [categories] = useState(['Technology', 'Lifestyle', 'Education']);
 
   // Fetch posts from local storage on load
   useEffect(() => {
