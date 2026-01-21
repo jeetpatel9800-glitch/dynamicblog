@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
 import Header from './Header';
 import HomePage from './HomePage';
 import CreatePost from './CreatePost';
 import PostDetail from './PostDetail';
 import EditPost from './EditPost';
-
-const AppWrapper = styled.div`
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-`;
-
-const GlobalContainer = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  background: #fff;
-`;
+import './App.css';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -49,8 +36,8 @@ const App = () => {
   };
 
   return (
-    <AppWrapper>
-      <GlobalContainer>
+    <div className="app-wrapper">
+      <div className="global-container">
       <Router>
         <Header />
         <main style={{ maxWidth: 1200, margin: '20px auto', padding: '0 16px' }}>
@@ -62,9 +49,9 @@ const App = () => {
           </Routes>
         </main>
       </Router>
-      </GlobalContainer>
-    </AppWrapper>
-  );
+      </div>
+    </div>
+  )
 };
 
 export default App;
